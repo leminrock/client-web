@@ -1,5 +1,5 @@
 <script>
-    export let hotname;
+  export let hotname
 </script>
 
-<p><strong>{hotname}</strong></p>
+<strong>{hotname}</strong>
