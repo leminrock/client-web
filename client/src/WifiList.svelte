@@ -1,6 +1,7 @@
 <script>
   import Hotspot from "./Hotspot.svelte"
   import { onMount } from "svelte"
+  import { Accordion } from "sveltestrap"
 
   let mbuto = []
 
@@ -23,20 +24,24 @@
 </script>
 
 <main>
-  <h1>Available Hotspots</h1>
-  <ul class="list-group">
+  <h2>Available Hotspots</h2>
+  <Accordion>
     {#each mbuto as singolo}
       {#if singolo.inUseBoolean}
-        <li class="list-group-item active">
-          <Hotspot hotname={singolo.SSID} />
-        </li>
+        <Hotspot
+          ssid={singolo.SSID}
+          chan={singolo.CHAN}
+          security={singolo.SECURITY}
+        />
       {:else}
-        <li class="list-group-item">
-          <Hotspot hotname={singolo.SSID} />
-        </li>
+        <Hotspot
+          ssid={singolo.SSID}
+          chan={singolo.CHAN}
+          security={singolo.SECURITY}
+        />
       {/if}
     {/each}
-  </ul>
+  </Accordion>
 </main>
 
 <style>
