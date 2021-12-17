@@ -1,15 +1,18 @@
 <script>
   import { onMount } from "svelte"
-  import { Accordion } from "sveltestrap"
+  import { Table } from "sveltestrap"
+  import PatchSpot from "./PatchSpot.svelte"
 
   let mbuto = []
+  let counter = 0
+
+  function incrementCount() {
+    counter += 1
+  }
 
   onMount(async () => {
     fetch("http://127.0.0.1:3000/api/v1/patch")
-      .then((response) => {
-        //console.log(response)
-        response.json()
-      })
+      .then((response) => response.json())
       .then((data) => {
         console.log("le patch sono:", data.patches)
         data.patches.forEach((elem) => {
@@ -26,15 +29,11 @@
 
 <main>
   <h2>Patches inside</h2>
-  <Accordion>
-    {#each mbuto as singolo}
-      {#if singolo.inUseBoolean}
-        ciao
-      {:else}
-        ciao
-      {/if}
+  <Table>
+    {#each mbuto as singolo, index}
+      <PatchSpot count={index + 1} patchname={singolo} />
     {/each}
-  </Accordion>
+  </Table>
 </main>
 
 <style>
