@@ -4,10 +4,19 @@
   export let ssid
   export let chan
   export let security
+  export let bars
+
+  const ssidbars = () => {
+    return `<div class="row"><div class="col">{ssid}</div><div class="col">{bars}</div></div>`
+  }
 </script>
 
 <div class="hotspotpoint">
-  <AccordionItem header={ssid}>
+  <Button class="btn-outline-dark">{ssid}</Button>
+</div>
+
+<div class="hotspotpoint">
+  <AccordionItem header={ssidbars()}>
     SECURITY: {security} CHANNEL: {chan}
     <Form>
       <FormGroup>

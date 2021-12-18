@@ -32,12 +32,14 @@
           ssid={singolo.SSID}
           chan={singolo.CHAN}
           security={singolo.SECURITY}
+          bars={singolo.BARS}
         />
       {:else}
         <Hotspot
           ssid={singolo.SSID}
           chan={singolo.CHAN}
           security={singolo.SECURITY}
+          bars={singolo.BARS}
         />
       {/if}
     {/each}

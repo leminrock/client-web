@@ -1,6 +1,9 @@
 <script>
   import { onMount } from "svelte"
-  import { Table } from "sveltestrap"
+  //import { Table } from "sveltestrap"
+
+  import { ListGroup } from "sveltestrap"
+
   import PatchSpot from "./PatchSpot.svelte"
 
   let mbuto = []
@@ -29,11 +32,11 @@
 
 <main>
   <h2>Patches inside</h2>
-  <Table>
+  <ListGroup numbered flush>
     {#each mbuto as singolo, index}
       <PatchSpot count={index + 1} patchname={singolo} />
     {/each}
-  </Table>
+  </ListGroup>
 </main>
 
 <style>
