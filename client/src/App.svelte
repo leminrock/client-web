@@ -1,11 +1,10 @@
 <script>
-  import { config } from "./config"
-  import Welcome from "./Welcome.svelte";
-  import WifiList from "./WifiList.svelte";
-  import PatchList from "./PatchList.svelte";
-  import UpdatePatch from "./UpdatePatch.svelte";
-  import { Accordion } from "sveltestrap";
-  export let name;
+  import Welcome from "./Welcome.svelte"
+  import WifiList from "./WifiList.svelte"
+  import PatchList from "./PatchList.svelte"
+  import UpdatePatch from "./UpdatePatch.svelte"
+  import { Accordion } from "sveltestrap"
+  export let name
 </script>
 
 <svelte:head>

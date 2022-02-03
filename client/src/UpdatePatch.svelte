@@ -2,7 +2,7 @@
   import { onMount } from "svelte"
   import { AccordionItem } from "sveltestrap"
   import PatchSpot from "./PatchSpot.svelte"
-  import { config } from "./config.js"
+  import { config } from "./config"
   let postVar
   let fileVar
 

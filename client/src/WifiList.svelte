@@ -2,7 +2,7 @@
   import Hotspot from "./Hotspot.svelte"
   import { onMount } from "svelte"
   import { Accordion, AccordionItem } from "sveltestrap"
-  import { config } from "./config.js"
+  import { config } from "./config"
   let mbuto = []
 
   onMount(async () => {

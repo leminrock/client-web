@@ -5,7 +5,7 @@
   import { Accordion, AccordionItem, ListGroup } from "sveltestrap"
 
   import PatchSpot from "./PatchSpot.svelte"
-  import config from "./config.js"
+  import { config } from "./config"
 
   let mbuto = []
   let counter = 0
