@@ -15,7 +15,7 @@
   }
 
   onMount(async () => {
-    fetch(`${config.domainaddress}/api/v1/patch`)
+    fetch(`http://${config.hostname}:8000/api/v1/patch`)
       .then((response) => response.json())
       .then((data) => {
         console.log("le patch sono:", data.patches)

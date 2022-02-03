@@ -5,8 +5,10 @@
   import { config } from "./config"
   let mbuto = []
 
+  //console.log($HOSTNAME)
+
   onMount(async () => {
-    fetch(`${config.domainaddress}/api/v1/wifi`)
+    fetch(`http://${config.hostname}:8000/api/v1/wifi`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
@@ -21,6 +23,8 @@
         return []
       })
   })
+
+  //onDestroy(unsubscribe)
 </script>
 
 <main>

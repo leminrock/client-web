@@ -4,7 +4,16 @@
   import PatchList from "./PatchList.svelte"
   import UpdatePatch from "./UpdatePatch.svelte"
   import { Accordion } from "sveltestrap"
+  import { HOSTNAME } from "./store.js"
+  import { onDestroy } from "svelte"
+
+  let hostname
+  const unsubscribe = HOSTNAME.subscribe((value) => {
+    console.log("HOSTNAME:", value)
+  })
+
   export let name
+  onDestroy(unsubscribe)
 </script>
 
 <svelte:head>

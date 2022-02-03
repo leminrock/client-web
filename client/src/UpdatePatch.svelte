@@ -18,7 +18,7 @@
     //dataArray.append("uploadFile", fileVar)
     dataArray.append("filename", fileVar[0])
 
-    fetch(`${config.domainaddress}/api/v1/patch/upload`, {
+    fetch(`http://${config.hostname}:8000/api/v1/patch/upload`, {
       method: "POST",
       //headers: [["Content-Type", "multipart/form-data"]],
       body: dataArray,
