@@ -1,4 +1,5 @@
 <script>
+  import { config } from "./config"
   import Welcome from "./Welcome.svelte";
   import WifiList from "./WifiList.svelte";
   import PatchList from "./PatchList.svelte";
