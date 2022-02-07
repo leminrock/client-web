@@ -1,19 +1,10 @@
 <script>
   import Welcome from "./Welcome.svelte"
-  import WifiList from "./WifiList.svelte"
   import PatchList from "./PatchList.svelte"
   import UpdatePatch from "./UpdatePatch.svelte"
   import { Accordion } from "sveltestrap"
-  import { HOSTNAME } from "./store.js"
-  import { onDestroy } from "svelte"
-
-  let hostname
-  const unsubscribe = HOSTNAME.subscribe((value) => {
-    console.log("HOSTNAME:", value)
-  })
 
   export let name
-  onDestroy(unsubscribe)
 </script>
 
 <svelte:head>
@@ -21,18 +12,13 @@
   <link rel="stylesheet" href="bootstrap-icons-1.7.2/bootstrap-icons.css" />
 </svelte:head>
 
-<div class="container-flex">
+<div class="container">
   <div class="row"><Welcome {name} /></div>
   <div class="row justify-content-evenly">
     <div class="col-5">
       <Accordion>
         <div class="row"><PatchList /></div>
         <div class="row"><UpdatePatch /></div>
-      </Accordion>
-    </div>
-    <div class="col-5">
-      <Accordion>
-        <div class="row"><WifiList /></div>
       </Accordion>
     </div>
   </div>
@@ -57,7 +43,7 @@
   :global(h2) {
     color: #ff3e00;
     text-transform: uppercase;
-    font-size: 2em !important;
+    font-size: 1em !important;
     font-weight: 100 !important;
     background-color: lightgray;
   }
@@ -65,8 +51,8 @@
   :global(.grey) {
     width: 500px;
     padding-right: 250px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     padding-left: 50px;
     background-color: lightgray;
   }

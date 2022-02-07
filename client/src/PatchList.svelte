@@ -1,42 +1,35 @@
 <script>
   import { onMount } from "svelte"
-  //import { Table } from "sveltestrap"
-
   import { Accordion, AccordionItem, ListGroup } from "sveltestrap"
 
   import PatchSpot from "./PatchSpot.svelte"
-  import { config } from "./config"
+  import { patch_list } from "./store.js"
+  import { patch_list_fetch } from "./fetch_patch_list.js"
 
-  let mbuto = []
-  let counter = 0
+  /*
+  let patchList
 
-  function incrementCount() {
-    counter += 1
-  }
-
-  onMount(async () => {
-    fetch(`http://${config.hostname}:8000/api/v1/patch`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("le patch sono:", data.patches)
-        data.patches.forEach((elem) => {
-          mbuto.push(elem)
-        })
-      })
-      .then(() => (mbuto = [...mbuto]))
-      .catch((error) => {
-        console.log(error)
-        return []
-      })
+  let unsubscribe = patch_list.subscribe((value) => {
+    patchList = value
   })
+  */
+
+  /*
+  function addTodo() {
+		const newTodo = { text: "Hey now", id: 6 }
+		todos.update(oldTodos => [...oldTodos, newTodo])
+	}
+  */
+
+  onMount(patch_list_fetch())
 </script>
 
 <main>
   <AccordionItem>
     <h2 slot="header" class="grey">Patches inside</h2>
     <ListGroup numbered flush>
-      {#each mbuto as singolo, index}
-        <PatchSpot count={index + 1} patchname={singolo} />
+      {#each $patch_list as singolo}
+        <PatchSpot patchname={singolo} />
       {/each}
     </ListGroup>
   </AccordionItem>

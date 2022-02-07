@@ -4,7 +4,7 @@
   import { ListGroupItem } from "sveltestrap"
 
   export let patchname
-  export let count
+  //export let count
 </script>
 
 <div class="hotspotpoint">

@@ -3,6 +3,8 @@
   import { AccordionItem } from "sveltestrap"
   import PatchSpot from "./PatchSpot.svelte"
   import { config } from "./config"
+  //import { patch_list } from "./store.js"
+  import { patch_list_fetch } from "./fetch_patch_list.js"
   let postVar
   let fileVar
 
@@ -14,20 +16,18 @@
   const submitForm = () => {
     posta()
     const dataArray = new FormData()
-    //dataArray.append("hero", postVar)
-    //dataArray.append("uploadFile", fileVar)
     dataArray.append("filename", fileVar[0])
 
     fetch(`http://${config.hostname}:8000/api/v1/patch/upload`, {
       method: "POST",
-      //headers: [["Content-Type", "multipart/form-data"]],
       body: dataArray,
     })
       .then((response) => {
         console.log(response.json())
+        patch_list_fetch()
       })
       .catch((error) => {
-        // Upload failed
+        console.log(error)
       })
   }
 </script>
