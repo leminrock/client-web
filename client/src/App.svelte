@@ -16,7 +16,7 @@
   <div class="row"><Welcome {name} /></div>
   <div class="row justify-content-evenly">
     <div class="col-5">
-      <Accordion>
+      <Accordion flush>
         <div class="row"><PatchList /></div>
         <div class="row"><UpdatePatch /></div>
       </Accordion>
@@ -33,31 +33,31 @@
   }
 
   :global(h1) {
-    color: #ff3e00;
+    color: #006699;
     text-transform: uppercase;
     font-size: 4em !important;
-    font-weight: 100 !important;
+    font-weight: bold 100 !important;
     background-color: lightgray;
   }
 
   :global(h2) {
-    color: #ff3e00;
+    color: #006699;
     text-transform: uppercase;
     font-size: 1em !important;
-    font-weight: 100 !important;
+    font-weight: bold 80 !important;
     background-color: lightgray;
   }
 
   :global(.grey) {
-    width: 500px;
-    padding-right: 250px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 50px;
+    width: 25%;
+    padding-right: 80%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 5%;
     background-color: lightgray;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 960px) {
     :global(main) {
       max-width: none;
     }
